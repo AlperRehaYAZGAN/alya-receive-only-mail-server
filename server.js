@@ -15,13 +15,13 @@ const dbErrors = level(path.join(process.cwd(), "data", "errorsleveldb"));
 async function saveMailToDb(storeValue) {
   const storeKey = new Date().toISOString();
   // store in db
-  await dbMails.put(storeKey, storeValue);
+  await dbMails.put(storeKey, JSON.stringify(storeValue));
 }
 
 async function saveMailErrorToDb(err) {
   const storeKey = new Date().toISOString();
   // store in db
-  await dbErrors.put(storeKey, err);
+  await dbErrors.put(storeKey, JSON.stringify(err));
 }
 
 const mailServer = new SMTPServer({
