@@ -74,11 +74,11 @@ Mail servers are resource-consuming and complex services. If you have a small pr
    ```
 2. Build docker image:
    ```sh
-   docker build -t alyamailserver:0.0.1 .
+   docker build -t alyamailreceiver:0.0.1 .
    ```
 3. Run Docker container:
    ```sh
-   docker run --name alya-mail-server \ 
+   docker run --name alya-mail-receiver \ 
    -e APP_URL=http://MYDOMAIN.COM \ 
    -e APP_PORT=9631 \ 
    -e MAIL_PORT=25 \ 
@@ -87,7 +87,7 @@ Mail servers are resource-consuming and complex services. If you have a small pr
    -p 9631:9631 \  
    -p 25:25 \  
    -v /path/to/db/on/my/local:/home/node/app/data \  
-   -d alyamailserver:0.0.1
+   -d alyamailreceiver:0.0.1
    ```
 
 ## Usage
@@ -98,32 +98,32 @@ Mail server on port MAIL_PORT||25 handles whole incoming mail processes. By the 
 
 ```sh
    curl -X GET -G \  
-   "http://localhost:9631/incomings/" \ 
-   --user mynameis:supersecretpass  
+   --user mynameis:supersecretpass  \  
+   "http://localhost:9631/incomings/"
    ```
 
 - GET /incomings/2021-09-30T12:17:39.578Z : get mail content
 
 ```sh
    curl -X GET -G \  
-   "http://localhost:9631/incomings/2021-09-30T12:17:39.578Z" \ 
-   --user mynameis:supersecretpass  
+   --user mynameis:supersecretpass  \  
+   "http://localhost:9631/incomings/2021-09-30T12:17:39.578Z"  
    ```
 
 - GET /errors/ : Retrieves all errors while handling incoming mails. Response returns errors occured dates as ISOString 
 
 ```sh
    curl -X GET -G \  
-   "http://localhost:9631/errors/" \ 
-   --user mynameis:supersecretpass  
+   --user mynameis:supersecretpass  \  
+   "http://localhost:9631/errors/"  
    ```
 
 - GET /errors/2021-09-30T12:17:39.578Z : get error details
 
 ```sh
    curl -X GET -G \  
-   "http://localhost:9631/errors/2021-09-30T12:17:39.578Z" \ 
-   --user mynameis:supersecretpass  
+   --user mynameis:supersecretpass  \  
+   "http://localhost:9631/errors/2021-09-30T12:17:39.578Z"  
    ```
 
 
@@ -132,7 +132,7 @@ Mail server on port MAIL_PORT||25 handles whole incoming mail processes. By the 
 See the [open issues](https://github.com/AlperRehaYAZGAN/alya-receive-only-mail-server/issues) for a list of proposed features (and known issues).
 
 ## TODO  
-- [X] Recieve and display mails  
+- [X] Receive and display mails  
 - [-] Improve UI with Panel
 - [-] Create Accounting to See related mails  
 
