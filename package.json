@@ -1,0 +1,25 @@
+{
+  "name": "receive-only-mail-service",
+  "version": "0.0.1",
+  "description": "A simple mail receiver for web servers",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "level": "^7.0.0",
+    "mailparser": "^3.3.0",
+    "smtp-server": "^3.9.0"
+  },
+  "scripts": {
+    "test": "node server",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "smtp",
+    "mail"
+  ],
+  "author": "Alper Reha YAZGAN <alper@yazgan.xyz>",
+  "license": "MIT"
+}

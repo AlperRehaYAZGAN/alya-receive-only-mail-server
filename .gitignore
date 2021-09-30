@@ -1,0 +1,10 @@
+# env and app datas
+.env
+/incoming
+/data
+
+# node modules
+/node_modules
+
+# informations
+util.md
